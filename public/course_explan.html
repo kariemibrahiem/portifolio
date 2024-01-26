@@ -1,0 +1,192 @@
+
+<!-- 
+    the course
+
+** index.js the container of all component of project >> we but element in the app the app in the index.js
+    
+++the main code in index.js  
+    --const root = ReactDOM.createRoot(document.getElementById("root")); // to render ver in name root control in the html element call id = fot
+        root.render(                                                    // to control the element
+            <React.StrictMode>                                         // standard code to contain the react code to display in the page 
+                                                                      // you must make div / element on the html page by name of fot
+                <h1>
+                hello
+                </h1>
+            </React.StrictMode>
+
+++ reactDom :: 
+            you mast fetch the element first 
+            --const name = reactDom.createRoot(document.getElementById("idName"))
+            {the ways to display
+            --reactDom.render( "text / html code / function '<App/>' " , document.getElementById("constName"))
+            --constName.render("text / html code / function '<App/>' ")
+            }
+
+++the code to display code // you write just one function ^^ or the prepend
+    --root.render(<div>fgk</div>); // to print element in in line 
+            
+++ to add element in the page 
+            --dimNide.children.push("html")
+
+++ to use function / page / var in another page::
+        export from the current page 
+            --export default fun / page; >> import without {}
+            --export let var/fun ;       >> in this chape we must declare the var >> import with {}
+            --export { var1/fun , var2}  >> in this chape if we don't declare we must but {}
+    **we must export "default" one fun
+    **if the function declare as arrow function must export as default
+        import to the next page
+            --import "page path"         >>  without {}
+            --import {fun}/{var1 , var2 .. } from "page path" >> with {}
+    ** and we must use {var} into the html code   
+
+++the main use of react that make any part might repeated in tamplet so we use component 
+            in src >> folder component and make each part in file
+
+++we must write all code in one arrow function             
+++to create a new component 
+            --const Name = () =>{ return( code "must be in one container tag") ; }
+                export default Name // the name must be capitalize in first letter
+
+++ hte props:: attr
+        in function --const Card = (props or we can but the attr name directly<then we can't use props before attr in the function>) =>{    {/* the props to tell the function the it will receive a attr */}
+        in the display fun--<h1>{props.title}</h1>  {/* to declare the props we use props.attrName */}
+    +important ex
+            --const arr = [{title:"first"} , {title:"second"} , {title:"third"}]; // it called object array 
+            --arr.map((elements)=>{                     {/* the map is js function to turn on the array element */  /* the element is parameter which carry the elements of array in turn */} 
+                return(
+                    <Card title={elements.title}/>      /* the element.title to select and get the object title from the array */   /* and that will give every card a different title assume to the array */
+                );
+            })
+
+++we can write children in the card in app file 
+            --<Card >
+            <h1>dkfjv</h1>
+            </Card>
+            but we declare props in the card file not name 
+            --Card = (props) 
+
+++handler 
+            that to handle the functions by but them in arrow function
+            in condition of arrow function in var 
+            **if we use name >> not work until click
+            ** name() >> it will work before and after click
+            ()=> { the real function}
+        
+
+++to make check function 
+            --arr.length > 0 ?  if condition to check if the element is exist
+                (
+                    arr.map((item, index) =>(
+                    <Card key={index} title={item.title}/>
+                    ))
+                )
+                 :
+                 <h1>no elements</h1>
+
+
+++some function trick::
+            nativeEvent.data >> display the last letter had written in the input
+            target.value >> display all  the data in the input
+
+
+++ the route in react **
+** realize that the tag must start  with capitalize
+           <BrowserRouter> {/*the main form for router  */}
+               <Routes> {/* the switch case in router */}
+                   <Route path="/head" element={<Header />}/> {/* the case in router */}
+                   <Route path="/foot" element={<Footer />}/>
+                    {/* the router work to make like switch function when click in one case it hide the other cases 
+                    thats == to the function  if(window.location.pathname == "/head"){return <Header />}*/}
+                >><Route path="/" element={<p>no thing</p>}/> // that in the main page
+                >><Route path="*" element={<Error />}/> // thats in the any page neither we defined
+                </Routes> 
+            </BrowserRouter>
+    ** to make buttons to access to the head & foot auto
+        that lead to refresh the page so we cant use    <a href="/head"> head </a> link to the page
+                                                        <a href="foot"> foot </a>  link to the page
+
+    the button / link to access another page
+        <Link to="/head"> head </Link> that button but not need to refresh
+
+++ use state ::
+don't forget to import the function
+                const [k , m] = useState(90) // function "without reload" that we effect on k by  m // we can use ro make effect without reload
+                ex: <button onClick={() => m(k-1)}>-</button> {/* that event increment the k by 1 ,, realize that we use m to effect on k */} // 
+
+++ use reducer ::
+    out of return 
+            let val = 0;
+            let fun = (state , action )=>{
+                switch(action){
+                    case "plus" :
+                        return state + 1;
+                    case "minus" :
+                        return state - 1 ;
+                    case "state" :
+                        return 0;
+                    default : 
+                        return state;
+                }
+            };
+            const [state , dispatsh]= useReducer( fun , val); //function effect on state by function "fun" // and send the value by val // run the function by dispatsh() that sent parameter to action
+    inside return
+            <button onClick={() => dispatsh("plus")}>+</button>
+            <button onClick={() => dispatsh("minus")}>-</button>
+            <button onClick={() => dispatsh("state")}>state</button>
+            {state}
+
+++ use effect::
+            useEffect(() => {console.log("jhdfbg");} , [var1 , var2] ); 
+             // we can effect by multiple vara
+            //function to do something with every render if wen don't add the [array] "debend on render" // and render just one time if we but array "depend on ver >> array"
+            //or we but a var it render with his^^ change only this var " depend on var"
+
+++useMemo::
+            useMemo( // function total like use effect
+                ()=>{
+                    console.log("dhbnfv");
+                }
+            , [var1 , var2]) // we can effect by multiple vara
+
+++ useref:: 
+             useEffect(() => {
+            x.current.click(); //functions  // function to focus on the current element one time cause of []
+            x.current.click();  // on render the button is clicked
+            } ,);
+            <button ref={x} onClick={() => m(k-1)}>-</button> {/* that event increment the k by 1 ,, realize that we use m to effect on k */}
+
+
+++context ::
+        --createContext::// without useContext
+            export const Con = createContext(); // make and export the var
+            <Con.Provider value="value">   {/* declare the var as provider */}
+            </Con.Provider>
+        ----createContext::// with useContext::
+                const M = useContext(Con); // used to call the provider without all this
+
+                <p>{M}e</p> // to display the var
+
+++ custom hook::
+            //ew need to use many api but it will damage the page so
+            //free api
+            // useEffect(() =>{
+            //     fetch('https://jsonplaceholder.typicode.com/todos/1')
+            //       .then(response => response.json())
+            //       .then(json => console.log(json))
+            // },[]) 
+                const [t] = Usecustom('https://jsonplaceholder.typicode.com/todos/1'); //we will use var for each api
+
+    --in another function 
+                const[ x , setC] = useStat([]);
+                useEffect(() =>{
+                fetch(url) //change the link to a parameter so we can use more then one api by the same var
+                .then(response => response.json())
+                .then(json => setC(json)) //change the return from console to the setVar in the useEffect fun
+                },[]) 
+                return x ; //we return the json by using x
+
+
+
+
+-->

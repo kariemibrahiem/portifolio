@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/portifolio/static/css/main.2eebe124.css",
+    "main.js": "/portifolio/static/js/main.0c6aa56f.js",
+    "static/media/back.png": "/portifolio/static/media/back.788f69d3a1129dc64d3b.png",
+    "static/media/phone.gif": "/portifolio/static/media/phone.747a0b971d8f447ab8fb.gif",
+    "static/media/location.gif": "/portifolio/static/media/location.f8a085f1137c273152f2.gif",
+    "static/media/home (1).gif": "/portifolio/static/media/home (1).e1baedc9e2643f9f7339.gif",
+    "static/media/pizza4.jpg": "/portifolio/static/media/pizza4.4546d76e83a50390dfa5.jpg",
+    "static/media/pizza2.png": "/portifolio/static/media/pizza2.4629e164051e6c01a35c.png",
+    "static/media/logo.png": "/portifolio/static/media/logo.61ecfb3b83af5ba3ea04.png",
+    "static/media/my.png": "/portifolio/static/media/my.5e8d6169cc4397eb1d4b.png",
+    "static/media/meal.jpg": "/portifolio/static/media/meal.bf7bff1b52a8e9f12975.jpg",
+    "static/media/cofee.jpg": "/portifolio/static/media/cofee.9aa4c79cf69f276b39cf.jpg",
+    "index.html": "/portifolio/index.html",
+    "main.2eebe124.css.map": "/portifolio/static/css/main.2eebe124.css.map",
+    "main.0c6aa56f.js.map": "/portifolio/static/js/main.0c6aa56f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2eebe124.css",
+    "static/js/main.0c6aa56f.js"
+  ]
+}
